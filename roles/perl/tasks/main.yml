@@ -1,21 +1,15 @@
 ---
 -
   name: Install plenv
-  git:
-    depth=1
-    dest="{{ plenv.dest }}"
-    recursive=no
-    repo="{{ plenv.repo }}"
+  homebrew:
+    name: plenv
 -
   name: Install perl-build
-  git:
-    depth=1
-    dest="{{ perl_build.dest }}"
-    recursive=no
-    repo="{{ perl_build.repo }}"
+  homebrew:
+      name: perl-build
 -
   name: Install Perls
-  command: "{{ plenv.dest }}/bin/plenv install {{ item.version }}"
+  command: "{{ homebrew.dest }}/bin/plenv install {{ item.version }}"
   args:
-    creates: "{{ plenv.dest }}/versions/{{ item.version }}"
+    creates: "{{ homebrew.dest }}/versions/{{ item.version }}"
   with_items: perl_versions

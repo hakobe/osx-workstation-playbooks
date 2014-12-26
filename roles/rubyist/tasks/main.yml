@@ -1,18 +1,12 @@
 ---
 -
   name: Install rbenv
-  git:
-    depth=1
-    dest="{{ rbenv.dest }}"
-    recursive=no
-    repo="{{ rbenv.repo }}"
+  homebrew:
+    name: rbenv
 -
   name: Install ruby-build
-  git:
-    depth=1
-    dest="{{ ruby_build.dest }}"
-    recursive=no
-    repo="{{ ruby_build.repo }}"
+  homebrew:
+    name: ruby-build
 -
   name: Install Ruby's dependencies
   homebrew:
@@ -22,9 +16,9 @@
   with_items: ruby.dependencies
 -
   name: Install Rubies
-  command: "{{ rbenv.dest }}/bin/rbenv install --keep {{ item.version }}"
+  command: "{{ homebrew.dest }}/bin/rbenv install --keep {{ item.version }}"
   args:
-    creates: "{{ rbenv.dest }}/versions/{{ item.version }}"
+    creates: "{{ homebrew.dest }}/versions/{{ item.version }}"
   with_items: ruby_versions
   environment:
     CC: /usr/bin/clang

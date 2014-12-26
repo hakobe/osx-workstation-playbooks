@@ -1,99 +1,112 @@
 ---
-computer_name: Hortensia
-local_host_name: Hortensia
+computer_name: suzushiro
+local_host_name: suzushiro
 karabiner:
-  source_private_xml: '{{ dotfiles.dest }}/osx/keyremap4macbook/private.xml'
-  config_dir: "{{ ansible_env.HOME }}/Library/Application Support/Karabiner"
+#  source_private_xml: '{{ dotfiles.dest }}/osx/keyremap4macbook/private.xml'
+#  config_dir: "{{ ansible_env.HOME }}/Library/Application Support/Karabiner"
   command: /Applications/Karabiner.app/Contents/Library/bin/karabiner
   config:
     -
-      name: notsave.automatically_enable_keyboard_device
+      name: remap.jis_yen2backslash
       value: 1
     -
-      name: notsave.automatically_enable_pointing_device
-      value: 1
-    -
-      name: option.emacsmode_controlM
-      value: 1
-    -
-      name: org.aereal.limechat.move-to-previous-unread-channel
-      value: 1
-    -
-      name: org.aereal.limechat.move-down-channel
-      value: 1
-    -
-      name: org.aereal.limechat.move-up-channel
-      value: 1
-    -
-      name: org.aereal.limechat.move-to-next-unread-channel
-      value: 1
-    -
-      name: org.aereal.sequel-pro.remap-c-h-to-delete
-      value: 1
-    -
-      name: remap.space2shiftL_space_keyrepeat
-      value: 1
-    -
-      name: remap.swapcolons
+      name: remap.forwarddelete2delete
       value: 1
     -
       name: repeat.initial_wait
-      value: 200
+      value: 100
     -
       name: repeat.wait
-      value: 35
+      value: 20
 homebrew:
   repo: git://github.com/homebrew/Homebrew.git
-  dest: /opt/homebrew
+  dest: /Users/yohei/local/homebrew
   packages:
     -
-      name: coreutils
+      name:  ack
     -
-      name: direnv
+      name:  ctags
     -
-      name: git
-      install_options: --with-brewed-openssl --with-pcre
+      name:  curl
     -
-      name: jq
+      name:  docker
     -
-      name: pstree
+      name:  git
     -
-      name: reattach-to-user-namespace
+      name:  gmp
+    -
+      name:  go
+      install_options: --cross-compile-common
+    -
+      name:  httpie
+    -
+      name:  hub
+    -
+      name:  imagemagick
+    -
+      name:  jq
+    -
+      name:  leiningen
+    -
+      name:  libpng
+    -
+      name:  lua
+    -
+      name:  lv
+    -
+      name:  memcached
+    -
+      name:  mercurial
+    -
+      name:  mongodb
+    -
+      name:  mysql55
+    -
+      name:  nginx
+    -
+      name:  node
+    -
+      name:  postgresql
+    -
+      name:  proxychains-ng
+    -
+      name:  readline
+    -
+      name:  reattach-to-user-namespace
       install_options: --with-launchctl --with-pbcopy-and-pbpaste
     -
-      name: ssh-copy-id
+      name:  redis
     -
-      name: terminal-notifier
+      name:  sbt
     -
-      name: the_silver_searcher
+      name:  sqlite
     -
-      name: tig
+      name:  terminal-notifier
     -
-      name: tmux
+      name:  tig
     -
-      name: wget
+      name:  tmux
     -
-      name: zsh
+      name:  tree
+    -
+      name:  wget
+    -
+      name:  zsh
       install_options: --disable-etcdir
-    - name: autossh
-    - name: hub
-    - name: proctools
-osx_apps:
-  casks:
-    - name: alfred
-    - name: dropbox
-    - name: iterm2
-    - name: slate
-    - name: karabiner
-    - name: xquartz
-    - name: virtualbox
-    - name: boot2docker
+#osx_apps:
+#  casks:
+#    - name: alfred
+#    - name: dropbox
+#    - name: karabiner
+#    - name: xquartz
+#    - name: virtualbox
+#    - name: boot2docker
+#    - name: caskroom/versions/iterm2-beta
+#    - name: caskroom/versions/macvim-kaoriya
 ruby_versions:
-  - version: 2.1.3
+  - version: 2.2.0
 perl_versions:
   - version: 5.20.1
-node_versions:
-  - version: 0.10.33
 dotfiles:
-  dest: ~/repos/github.com/aereal/dotfiles
-  repo: git://github.com/aereal/dotfiles.git
+  dest: ~/working/github.com/hakobe/dotfiles
+  repo: git://github.com/hakobe/dotfiles.git
